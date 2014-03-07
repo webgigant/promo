@@ -50,7 +50,7 @@ public class TaskController {
            }
         }
         if(notCompletedCount>1){
-            redirectModel.addFlashAttribute(ATTR_ERROR_MESSAGE,"task.not_completed");
+            redirectModel.addFlashAttribute(ATTR_ERROR_MESSAGE,"task.work_not_completed");
         }else{
             Task task = tasks.get(TaskType.finishwork);
             task.setCompleted(true);
@@ -107,10 +107,18 @@ public class TaskController {
 
     @RequestMapping(value = "/photoupload",method = RequestMethod.POST)
     public String photoupload(Model model, @RequestParam TaskType taskType,@RequestParam MultipartFile file,@RequestParam(required = false) boolean partially, @ModelAttribute("tasks")Map<TaskType,Task> tasks, RedirectAttributes redirectModel) {
-        Task task = tasks.get(taskType);
-        task.setCompleted(true);
-        task.setNotAllPhoto(partially);
-        redirectModel.addFlashAttribute(ATTR_SUCCESS_MESSAGE,"task.completed");
+        if(file.isEmpty()){
+            redirectModel.addFlashAttribute(ATTR_ERROR_MESSAGE,"task.not_completed");
+            if(taskType == TaskType.startworkphoto)
+                return "redirect:/task/startworkphoto";
+            if(taskType == TaskType.finishworkphoto)
+                return "redirect:/task/finishworkphoto";
+        }else{
+            Task task = tasks.get(taskType);
+            task.setCompleted(true);
+            task.setNotAllPhoto(partially);
+            redirectModel.addFlashAttribute(ATTR_SUCCESS_MESSAGE,"task.completed");
+            }
         return "redirect:/home";
     }
 }

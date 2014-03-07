@@ -36,7 +36,7 @@ public class LoginController {
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String handleLogin(RedirectAttributes redirectModel,Model model,@RequestParam String email,@RequestParam String password, HttpSession session) {
         if(email.equals("demo@promo")){
-            User user = new User("Promouter", email, password);
+            User user = new User("Промоутер Магазина", email, password);
             session.setAttribute("user", user);
             List<Task> taskList = user.getCurrentTasks();
 
@@ -66,7 +66,7 @@ public class LoginController {
             return "redirect:/home";
         }
 
-        redirectModel.addAttribute("errorMessage","login.failed");
+        redirectModel.addFlashAttribute("errorMessage","login.failed");
         return "redirect:/login";
     }
 
