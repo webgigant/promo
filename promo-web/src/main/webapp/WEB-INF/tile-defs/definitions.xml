@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+    <definition name="login" extends="loginTemplate">
+        <put-attribute name="content" value="/WEB-INF/jsp/login.jsp"/>
+    </definition>
+    <definition name="home" extends="defaultTemplate">
+        <put-attribute name="content" value="/WEB-INF/jsp/home.jsp"/>
+    </definition>
+
+    <definition name="startworkphoto" extends="defaultTemplate">
+        <put-attribute name="content" value="/WEB-INF/jsp/startworkphoto.jsp"/>
+    </definition>
+    <definition name="dailyreport" extends="defaultTemplate">
+        <put-attribute name="content" value="/WEB-INF/jsp/dailyreport.jsp"/>
+    </definition>
+    <definition name="finishworkphoto" extends="defaultTemplate">
+        <put-attribute name="content" value="/WEB-INF/jsp/finishworkphoto.jsp"/>
+    </definition>
+
+
+</tiles-definitions>
