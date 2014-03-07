@@ -1,8 +1,7 @@
 <%@ include file="/WEB-INF/template/includes.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8" %>
-
 <div class="page-header">
-    <h1>Основные задачи</h1>
+    <h1>Брак</h1>
 </div>
 <c:if test="${not empty successMessage}">
     <div class="alert alert-success">
@@ -16,12 +15,11 @@
         <spring:message code="${errorMessage}"/>
     </div>
 </c:if>
-<c:forEach items="${user.currentTasks}" var="task" >
-    <c:if test="${task.completed == false}">
-        <p>
-            <a href='<c:url value="/task/${task.type}"/>'>
-                <button class="btn btn-lg btn-primary" type="button"><spring:message code="task.${task.type}"/></button>
-            </a>
-        </p>
-    </c:if>
-</c:forEach>
+<form role="form" method="POST" action='<c:url value="/services/defectsearch"/>'>
+    <div class="input-group">
+          <input name="itemCode" type="text" class="form-control">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="submit">Найти</button>
+          </span>
+    </div>
+</form>

@@ -1,10 +1,7 @@
 package ua.wizard.promo.model;
 
-import ua.wizard.promo.web.controller.TaskType;
-
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.

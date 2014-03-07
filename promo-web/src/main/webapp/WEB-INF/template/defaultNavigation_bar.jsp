@@ -13,8 +13,15 @@
             </button>
             <a href="#" class="navbar-brand"><fmt:formatDate value="${currentDate}"/></a>
         </div>
-        <div id="bs-example-navbar-collapse-5" class="collapse navbar-collapse">
-            <p class="navbar-text navbar-right">добрый день, <a class="navbar-link" href="#">${user.name}</a></p>
-        </div>
+        <c:if test="${not empty user}">
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href='<c:url value="/"/>'>На главную</a></li>
+                    <li><a href='<c:url value="/services"/>'>Дополнительный сервис</a></li>
+                </ul>
+                <p class="navbar-text navbar-right">Добрый день, ${user.name}. <a href='<c:url value="/logout"/>'>Выход</a></p>
+            </div>
+        </c:if>
     </div>
 </nav>
+<p>У Вас новых <span class="badge">2</span> <a href="#">сообщений</a></p>

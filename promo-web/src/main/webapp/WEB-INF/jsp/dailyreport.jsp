@@ -1,6 +1,8 @@
 <%@ include file="/WEB-INF/template/includes.jsp" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8" %>
-<h1>Ежедневный отчет</h1>
+<div class="page-header">
+    <h1>Ежедневный отчет</h1>
+</div>
 <h2>Бренды</h2>
 <h5>нет, мало, много</h5>
 <form role="form" method="POST" action='<c:url value="/task/dailyreport"/>' >

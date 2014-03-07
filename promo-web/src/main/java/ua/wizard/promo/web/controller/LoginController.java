@@ -5,15 +5,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ua.wizard.promo.model.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -30,6 +27,12 @@ public class LoginController {
         return "login";
     }
 
+    @RequestMapping(value = "/logout",method = RequestMethod.GET)
+    public String login(Model model, HttpSession session) {
+        session.removeAttribute("user");
+        return "redirect:/login";
+    }
+
     @RequestMapping(value = "/login",method = RequestMethod.POST)
     public String handleLogin(RedirectAttributes redirectModel,Model model,@RequestParam String email,@RequestParam String password, HttpSession session) {
         if(email.equals("demo@promo")){
@@ -39,25 +42,27 @@ public class LoginController {
 
             taskList.add(newTask(TaskType.startwork));
             taskList.add(newTask(TaskType.startworkphoto));
+            taskList.add(newTask(TaskType.competitor));
             taskList.add(newTask(TaskType.dailyreport));
             taskList.add(newTask(TaskType.finishworkphoto));
             taskList.add(newTask(TaskType.finishwork));
 
             List<UserBrandDailyReport> dailyReports = user.getDailyReports();
-            dailyReports.add(newDailyReport("brand1"));
-            dailyReports.add(newDailyReport("brand2"));
-            dailyReports.add(newDailyReport("brand3"));
-            dailyReports.add(newDailyReport("brand4"));
-            dailyReports.add(newDailyReport("brand5"));
+            dailyReports.add(newDailyReport("Ferroli"));
+            dailyReports.add(newDailyReport("Atmos"));
+            dailyReports.add(newDailyReport("Kospel"));
+            dailyReports.add(newDailyReport("Viadrus"));
+            dailyReports.add(newDailyReport("Cersanit"));
+            dailyReports.add(newDailyReport("Kolo"));
 
             List<UserProductDailyReport> productDailyReports = user.getProductDailyReports();
-            productDailyReports.add(newProductDailyReport("category1"));
-            productDailyReports.add(newProductDailyReport("category2"));
-            productDailyReports.add(newProductDailyReport("category3"));
-            productDailyReports.add(newProductDailyReport("category4"));
-            productDailyReports.add(newProductDailyReport("category5"));
-            productDailyReports.add(newProductDailyReport("category6"));
-            productDailyReports.add(newProductDailyReport("category7"));
+            productDailyReports.add(newProductDailyReport("Ванны"));
+            productDailyReports.add(newProductDailyReport("Умывальники"));
+            productDailyReports.add(newProductDailyReport("Унитазы"));
+            productDailyReports.add(newProductDailyReport("Смесители"));
+            productDailyReports.add(newProductDailyReport("Поддоны"));
+            productDailyReports.add(newProductDailyReport("Котлы"));
+            productDailyReports.add(newProductDailyReport("Радиаторы"));
             return "redirect:/home";
         }
 

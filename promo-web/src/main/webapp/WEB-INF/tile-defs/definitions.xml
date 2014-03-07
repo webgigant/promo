@@ -19,6 +19,27 @@
     <definition name="finishworkphoto" extends="defaultTemplate">
         <put-attribute name="content" value="/WEB-INF/jsp/finishworkphoto.jsp"/>
     </definition>
+    <definition name="competitor" extends="defaultTemplate">
+        <put-attribute name="content" value="/WEB-INF/jsp/competitor.jsp"/>
+    </definition>
 
 
+    <definition name="services/list" extends="defaultTemplate">
+        <put-attribute name="content" value="/WEB-INF/jsp/services/list.jsp"/>
+    </definition>
+    <definition name="services/defect" extends="defaultTemplate">
+        <put-attribute name="content" value="/WEB-INF/jsp/services/defect.jsp"/>
+    </definition>
+    <definition name="services/defectsearch" extends="defaultTemplate">
+        <put-attribute name="content" value="/WEB-INF/jsp/services/defectsearch.jsp"/>
+    </definition>
+    <definition name="services/delivery" extends="defaultTemplate">
+        <put-attribute name="content" value="/WEB-INF/jsp/services/delivery.jsp"/>
+    </definition>
+    <definition name="services/netimport" extends="defaultTemplate">
+        <put-attribute name="content" value="/WEB-INF/jsp/services/netimport.jsp"/>
+    </definition>
+    <definition name="services/storage" extends="defaultTemplate">
+        <put-attribute name="content" value="/WEB-INF/jsp/services/storage.jsp"/>
+    </definition>
 </tiles-definitions>

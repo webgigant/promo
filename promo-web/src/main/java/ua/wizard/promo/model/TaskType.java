@@ -1,4 +1,4 @@
-package ua.wizard.promo.web.controller;
+package ua.wizard.promo.model;
 
 /**
  * Created with IntelliJ IDEA.
@@ -8,5 +8,5 @@ package ua.wizard.promo.web.controller;
  * To change this template use File | Settings | File Templates.
  */
 public enum TaskType {
-    startwork, startworkphoto, dailyreport, finishworkphoto, finishwork;
+    startwork, startworkphoto, competitor ,dailyreport, finishworkphoto, finishwork;
 }
